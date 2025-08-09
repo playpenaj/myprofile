@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ajesh KJ — IT Leader | Digital Transformation</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#0077b6;
+      --accent-2:#00b4d8;
+      --bg-1:#0f1724;   /* deep cinematic top */
+      --bg-2:#071026;   /* deep cinematic bottom */
+      --card:#1e293b;
+      --card-light:#334155;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.03);
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Montserrat',sans-serif;color:#f8fafc;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased}
+    a{color:var(--accent-2);text-decoration:none}
+    /* --- container --- */
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+
+    /* --- NAV --- */
+    .nav{
+      position:sticky;top:0;z-index:40;
+      display:flex;justify-content:center;
+      background: var(--bg-2);
+      padding: 8px 0;
+    }
+    .nav-inner{
+      width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:12px;padding:10px 18px;backdrop-filter: blur(6px);box-shadow:0 6px 30px rgba(2,6,23,0.6);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:44px;width:44px;object-fit:contain;border-radius:8px;background:linear-gradient(45deg,var(--accent),var(--accent-2))}
+    .brand h4{margin:0;color:#fff;font-weight:800;letter-spacing:0.4px}
+    .nav-links{display:flex;gap:8px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,0.95);padding:8px 10px;border-radius:8px;font-weight:600;font-size:14px;white-space: nowrap;}
+    .nav-links a:hover{background:rgba(255,255,255,0.03)}
+
+    /* HORIZONTAL ROADMAP */
+    .roadmap-container {
+      overflow-x: auto;
+      padding: 20px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .roadmap {
+      display: flex;
+      min-width: 800px;
+      padding: 0 24px;
+      position: relative;
+    }
+    .roadmap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent-2));
+      z-index: 1;
+    }
+    .roadmap-item {
+      position: relative;
+      padding: 0 20px;
+      flex: 1;
+      min-width: 160px;
+      z-index: 2;
+      text-align: center;
+    }
+    .roadmarker {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      margin: 0 auto 10px;
+      position: relative;
+      box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.2);
+    }
+    .roadmap-content {
+      background: var(--card);
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(2,6,23,0.3);
+    }
+    .roadmap-company {
+      font-weight: 700;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+    .roadmap-role {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+    .roadmap-period {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* --- HERO / BANNER --- */
+    header.hero{
+      min-height:60vh;display:flex;align-items:center;
+      background: var(--bg-2);
+      position:relative;margin:0 0 28px;
+      overflow:hidden;
+    }
+    .hero-inner{position:relative;z-index:3;padding:40px 24px;display:flex;flex-direction:column;gap:30px;width:100%;}
+    .hero-left{flex:1;color:white;max-width:100%}
+    .hero-left h1{font-size:36px;margin:0 0 8px;line-height:1.1;font-weight:800;letter-spacing:-0.6px}
+    .hero-left p.lead{margin:0 0 18px;color:rgba(255,255,255,0.9);font-size:16px;line-height:1.5}
+    .hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:12px 18px;border-radius:10px;font-weight:700;box-shadow:0 10px 30px rgba(0,180,216,0.12);white-space:nowrap}
+    .btn-outline{border:1px solid rgba(255,255,255,0.12);color:white;padding:10px 16px;border-radius:10px;white-space:nowrap}
+    .meta{margin-top:14px;color:rgba(255,255,255,0.8);font-size:14px}
+
+    .hero-right{width:100%;}
+    .card-stats{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));padding:14px;border-radius:12px;width:100%}
+    .stat{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .stat:last-child{margin-bottom:0}
+    .stat .label{color:rgba(255,255,255,0.8);font-size:13px}
+    .stat .value{font-weight:800;font-size:16px;color:#fff}
+
+    /* --- journey / chapters --- */
+    .journey{margin:28px 0 0;border-radius:0;overflow:hidden}
+    .chapter{position:relative;min-height:auto;display:flex;align-items:center;padding:40px 24px;gap:20px;background: var(--bg-1);flex-direction:column}
+    .chapter .content{max-width:100%;color:white;position:relative;z-index:2}
+    .year-badge{position:static;margin:0 0 20px 0;align-self:flex-start}
+    .content h2{font-size:24px;margin:0 0 6px}
+    .tagline{color:var(--accent-2);font-style:italic;margin-bottom:12px;font-size:14px}
+    .content ul{margin:12px 0 0;padding-left:20px}
+    .content li{margin-bottom:8px;line-height:1.5;font-size:15px}
+    .chapter .quote{margin-top:18px;background:rgba(255,255,255,0.04);padding:12px;border-radius:8px;border-left:4px solid var(--accent-2);color:rgba(255,255,255,0.95);font-size:14px}
+
+    /* read-more / accordion */
+    .more{margin-top:12px}
+    .readmore-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#fff;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600;font-size:14px}
+    .details{max-height:0;overflow:hidden;transition:max-height .45s ease;padding-right:0;font-size:14px}
+    .details.open{max-height:800px;padding-top:12px;padding-bottom:12px}
+
+    /* --- skills & table area --- */
+    section.data-panel{background:transparent;margin:28px 0;border-radius:0;padding:0 24px;backdrop-filter:none}
+    .grid{display:grid;grid-template-columns:1fr;gap:20px}
+    .panel{background:var(--card);border-radius:10px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.45);margin-bottom:20px}
+    h3.section-title{margin:0 0 12px;color:#f8fafc;font-size:20px}
+    table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card-light);border-radius:8px;overflow:hidden}
+    th,td{padding:12px;text-align:left}
+    th{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:none}
+    td{border-bottom:1px solid rgba(255,255,255,0.05);color:#e2e8f0;font-size:14px}
+    tr:last-child td{border-bottom:none}
+    .skills-chip{display:inline-block;background:var(--glass);color:white;padding:6px 10px;border-radius:999px;font-weight:600;margin:6px 6px 0 0;font-size:13px}
+
+    /* awards & footer */
+    .awards{margin:28px 24px 40px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .award{background:linear-gradient(180deg,rgba(30,41,59,0.98),var(--card));padding:12px;border-radius:8px;box-shadow:0 12px 30px rgba(2,6,23,0.3);border:1px solid rgba(255,255,255,0.05)}
+    .award strong{color:#f8fafc;font-size:14px}
+    .award small{color:var(--muted);font-size:12px}
+    footer{color:#94a3b8;text-align:center;padding:28px 12px;margin-top:30px;background:var(--bg-1)}
+
+    /* --- animations & responsive --- */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media (min-width:768px){
+      .hero-inner{flex-direction:row;padding:56px 24px}
+      .hero-left{max-width:720px}
+      .hero-right{width:320px}
+      .chapter{padding:56px;flex-direction:row;min-height:68vh}
+      .chapter .content{max-width:720px}
+      .year-badge{position:absolute;right:36px;top:36px;margin:0}
+      .awards{grid-template-columns:repeat(4,1fr)}
+      .nav-links{gap:14px}
+    }
+    @media (min-width:992px){
+      .grid{grid-template-columns:1fr 360px}
+      .hero-inner{padding:56px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="nav-inner wrap" role="navigation" aria-label="Main navigation">
+      <div class="brand" title="Ajesh KJ">
+        <img src="https://img.icons8.com/fluency/96/null/user-male-circle.png" alt="Logo" />
+        <div>
+          <h4>Ajesh KJ</h4>
+          <div style="font-size:12px;color:rgba(255,255,255,0.75)">IT Leader • Digital Transformation</div>
+        </div>
+      </div>
+
+      <div class="nav-links" aria-hidden="false">
+        <a href="#experience-roadmap">Timeline</a>
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HORIZONTAL ROADMAP -->
+  <div class="roadmap-container">
+    <div class="roadmap wrap reveal" id="experience-roadmap">
+      <div class="roadmap-item">
+        <div class="roadmarker"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-company">DB Schenker</div>
+          <div class="roadmap-role">Digitalization Lead</div>
+          <div class="roadmap-period">2023-Present</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmarker"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-company">Singapore Post</div>
+          <div class="roadmap-role">Product Owner</div>
+          <div class="roadmap-period">2022-2023</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmarker"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-company">DB Schenker</div>
+          <div class="roadmap-role">IT Service Manager</div>
+          <div class="roadmap-period">2018-2022</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmarker"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-company">DHL</div>
+          <div class="roadmap-role">App Consultant</div>
+          <div class="roadmap-period">2014-2018</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmarker"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-company">Dell (UBS)</div>
+          <div class="roadmap-role">Team Lead</div>
+          <div class="roadmap-period">2011-2014</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmarker"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-company">HCL</div>
+          <div class="roadmap-role">Credit Risk</div>
+          <div class="roadmap-period">2007-2010</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="summary" role="banner" aria-label="Hero">
+    <div class="hero-inner wrap">
+      <div class="hero-left reveal">
+        <h1>Ajesh KJ</h1>
+        <p class="lead">Dynamic IT leader with 18+ years building resilient operations, delivering cloud migrations, and driving automation across APAC logistics & financial services.</p>
+
+        <div class="hero-cta">
+          <a class="btn" href="#contact">Contact Me</a>
+          <a class="btn-outline" href="#skills">View Skills</a>
+        </div>
+
+        <div class="meta">Singapore & India • Available for leadership opportunities and consulting</div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card-stats">
+          <div class="stat"><div class="label">Years Experience</div><div class="value">18+</div></div>
+          <div class="stat"><div class="label">Regions</div><div class="value">APAC (12 countries)</div></div>
+        </div>
+
+        <div class="card-stats" aria-hidden="true" style="margin-top:12px">
+          <div class="stat"><div class="label">Core Domains</div><div class="value">ITSM • Cloud • TMS • Automation</div></div>
+          <div class="stat"><div class="label">Tools</div><div class="value">Azure • Power BI • E2Open • OTM</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CINEMATIC JOURNEY -->
+  <main id="journey" class="journey wrap" aria-live="polite">
+    <!-- Chapter 1 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2007</div>
+      <div class="content">
+        <h2>From Code to Commerce — The Foundation</h2>
+        <div class="tagline">"Built the technical muscle in high-pressure finance environments."</div>
+        <p>My career started in the heart of financial systems where correctness and performance were table stakes. I cut my teeth supporting high-throughput Monte Carlo engines and mission-critical credit risk platforms.</p>
+        <ul>
+          <li>Supported the MATRIX Credit Risk platform; developed PL/SQL routines and batch automation for scheduled risk runs.</li>
+          <li>Delivered release-management, testing and on-call support under strict SLAs.</li>
+        </ul>
+
+        <div class="quote">"Early emphasis on robustness & discipline shaped how I design operational solutions today."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2011</div>
+      <div class="content">
+        <h2>Scaling Operations — Trading Tech & Automation</h2>
+        <div class="tagline">"From developer to operational team lead."</div>
+        <p>At Dell (servicing UBS), I moved into platform operations for trading environments. This phase sharpened my ability to automate repeatable tasks and streamline incident response.</p>
+        <ul>
+          <li>Led ETD IT support — maintained 16x5 trading platforms and operational alerting.</li>
+          <li>Automated routine operational tasks and orchestrated coordination between ops and engineering teams to reduce mean time to repair.</li>
+        </ul>
+
+        <div class="quote">"Automation isn't optional — it's a force multiplier for teams under pressure."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2014–2018</div>
+      <div class="content">
+        <h2>Digital Champion — Logistics & Integration</h2>
+        <div class="tagline">"Where logistics met meaningful digital change."</div>
+        <p>Joining DHL was the pivot to logistics — integrating large TMS platforms and rebuilds across countries, and embedding automation into real-world transport flows.</p>
+        <ul>
+          <li>Rebuilt standard integration layers across a 12-country TMS platform and led major upgrades.</li>
+          <li>Implemented reporting, DR drills and automation that improved reliability during migrations.</li>
+          <li>Recognized with the 'CAN DO' award for cross-country upgrade delivery.</li>
+        </ul>
+
+        <div class="quote">"Large, distributed platforms need pragmatic integration strategies and robust change controls."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2018–2022</div>
+      <div class="content">
+        <h2>Regional Leadership — DB Schenker</h2>
+        <div class="tagline">"Leading technology across APAC."</div>
+        <p>As Regional APAC IT Service Manager I transitioned to managing people, vendors and multi-country platforms. This stage honed stakeholder engagement, vendor governance and cross-border rollout capability.</p>
+        <ul>
+          <li>Managed E2Open and Oracle OTM systems across 12 APAC countries with a remote team and vendor ecosystem.</li>
+          <li>Built Power BI dashboards and introduced RPA sanity checks for automation health.</li>
+          <li>Led CABs, crisis management and service reviews to maintain uptime and change quality.</li>
+        </ul>
+
+        <div class="quote">"Leadership is the ability to translate technical strategy into predictable, repeatable outcomes."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 5 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2022–Present</div>
+      <div class="content">
+        <h2>The Digitalization Era — Product & Transformation</h2>
+        <div class="tagline">"Product thinking applied to operational engineering."</div>
+        <p>Recent roles moved me to product ownership and digitalization leadership. I focused on cloud migrations, cost-optimised integrations and knowledge automation.</p>
+        <ul>
+          <li>As Product Owner at Singapore Post, led migration of SAS reports to Azure Synapse and Power BI; coordinated a 30+ member offshore vendor team.</li>
+          <li>Built an internal RAG-powered chatbot and AI-assisted knowledge retrieval while at DB Schenker as Digitalization Lead.</li>
+          <li>Ongoing focus: combine product thinking, cost-conscious cloud engineering and pragmatic automation to reduce manual effort and improve insights.</li>
+        </ul>
+
+        <div class="quote">"Product + ops = resilient, scalable platforms that serve customers and teams."</div>
+
+        <!-- Read more / details -->
+        <div class="more">
+          <button class="readmore-btn" data-target="det-2022">Read role details ▾</button>
+          <div id="det-2022" class="details" aria-hidden="true">
+            <h4 style="color:#fff;margin:0 0 8px">Selected achievements & outputs</h4>
+            <ul>
+              <li>Designed Azure Function App patterns and governance that reduced cost spikes by 18%.</li>
+              <li>Delivered an AI-assisted internal chatbot integrating knowledge base + Power BI insights for frontline teams.</li>
+              <li>Defined SLA & runbook standards for critical integrations, improving mean-time-to-recovery by >30%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SKILLS & CERTIFICATIONS -->
+  <section id="skills" class="data-panel wrap" aria-label="Skills and certifications">
+    <div class="grid">
+      <!-- Skills & Certifications -->
+      <div class="panel reveal" id="skills-panel">
+        <h3 class="section-title">Core Skills & Certifications</h3>
+
+        <div style="margin-bottom:10px">
+          <span class="skills-chip">IT Service Management</span>
+          <span class="skills-chip">Cloud & Data</span>
+          <span class="skills-chip">Transport Systems</span>
+          <span class="skills-chip">Automation</span>
+          <span class="skills-chip">Power BI</span>
+        </div>
+
+        <p style="color:#94a3b8;margin-top:10px">Skill matrix</p>
+        <table aria-describedby="skill-table-desc">
+          <caption id="skill-table-desc" style="display:none">Skill Area details</caption>
+          <thead><tr><th>Skill Area</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>IT Service Management</td><td>ITIL Framework, Incident/Problem/Change/Release, SLA Governance, Service Reviews</td></tr>
+            <tr><td>Cloud & Data</td><td>Azure Synapse, Snowflake, Azure Functions, Azure Cost Management</td></tr>
+            <tr><td>Transport Systems</td><td>E2Open TMS, Oracle OTM — multi-country rollouts</td></tr>
+            <tr><td>Development</td><td>Unix Shell Scripting, SQL, PL/SQL, Python, Mulesoft</td></tr>
+            <tr><td>Low-Code</td><td>Microsoft Power Automate, PowerApps</td></tr>
+            <tr><td>Project Tools</td><td>JIRA, Azure Boards, Microsoft Planner</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top:18px">Certifications</h3>
+        <table>
+          <thead><tr><th>Certification</th><th>Issuer</th></tr></thead>
+          <tbody>
+            <tr><td>ITIL V3 Foundation</td><td>Axelos</td></tr>
+            <tr><td>PM101</td><td>DHL</td></tr>
+            <tr><td>CSCS</td><td>DHL</td></tr>
+            <tr><td>Scrum Master Training</td><td>DB Schenker</td></tr>
+            <tr><td>AI Training – Level 1</td><td>DB Schenker</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED EXPERIENCE -->
+  <section id="experience" class="wrap" style="margin-top:20px">
+    <div class="panel reveal" style="padding:22px">
+      <h3 class="section-title">Detailed Professional Experience</h3>
+
+      <!-- DB Schenker (current) -->
+      <article style="margin-top:12px">
+        <h4 style="margin:6px 0">DB Schenker — Business Engagement & Digitalization Lead</h4>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2023 – Present • APAC (Road Transport)</div>
+        <ul>
+          <li>Lead automation and digitization initiatives across APAC Road Transport division — aligned technical solutions to commercial KPIs.</li>
+          <li>Single point of contact for application escalations, complex customer onboarding, and bespoke solution delivery.</li>
+          <li>Built an internal RAG-powered chatbot (knowledge retrieval + context-aware answers) that reduced knowledge-search time by ~40% for frontline IT support.</li>
+        </ul>
+        <table style="margin-top:12px">
+          <thead><tr><th>Key Responsibilities</th><th>Impact / Metrics</th></tr></thead>
+          <tbody>
+            <tr><td>Automation roadmap & delivery</td><td>Reduced manual processing for key workflows by up to 35%</td></tr>
+            <tr><td>Customer onboarding & bespoke integrations</td><td>Shortened average onboarding time from 10 to 6 business days</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Singapore Post -->
+      <article style="margin-top:18px">
+        <h4>Singapore Post Ltd — Product Owner & Service Manager</h4>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2022 – Aug 2023</div>
+        <ul>
+          <li>Oversaw migration of SAS reporting to Azure Synapse and Power BI; coordinated 30+ offshore vendor resources and stakeholders.</li>
+          <li>Managed Azure Function Apps used for integrations — instituted cost governance and observability practices.</li>
+          <li>Acted dual role: as Product Owner for analytics migration and Service Manager for incident & vendor coordination.</li>
+        </ul>
+        <table style="margin-top:12px">
+          <thead><tr><th>Project</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>SAS → Azure Synapse migration</td><td>Delivered phased migration with zero data-loss and improved report load times</td></tr>
+            <tr><td>Azure cost optimization</td><td>Implemented function app retention and scaling controls, saving 15% monthly</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- DB Schenker (Regional) -->
+      <article style="margin-top:18px">
+        <h4>DB Schenker — Regional APAC IT Service Manager</h4>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2018 – Sep 2022</div>
+        <ul>
+          <li>Managed E2Open & OTM across 12 countries; led incident, problem, change & release governance.</li>
+          <li>Supervised a 7-member remote team and managed third-party SLAs.</li>
+          <li>Built Power BI reporting to provide operational and commercial dashboards for regional leadership.</li>
+        </ul>
+      </article>
+
+      <!-- DHL -->
+      <article style="margin-top:18px">
+        <h4>DHL Supply Chain — Senior Application Consultant</h4>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Sep 2014 – Jul 2018</div>
+        <ul>
+          <li>Managed technical changes and integrations on TMS; rebuilt integration layers across 12-country platform.</li>
+          <li>Led DR drills, infrastructure provisioning and process automations for improved MTTR.</li>
+        </ul>
+      </article>
+
+      <!-- Dell -->
+      <article style="margin-top:18px">
+        <h4>Dell Singapore (Client: UBS) — Team Lead, ETD IT</h4>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Oct 2011 – Sep 2014</div>
+        <ul>
+          <li>Led support for trading platforms; automated operational tasks and handled high-severity incidents.</li>
+        </ul>
+      </article>
+
+      <!-- HCL -->
+      <article style="margin-top:18px">
+        <h4>HCL Technologies (Client: Deutsche Bank) — Team Member, MATRIX Credit Risk Platform</h4>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Jul 2007 – Feb 2010</div>
+        <ul>
+          <li>Supported Monte Carlo risk engine, developed PL/SQL routines, and delivered client reporting and releases.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="awards wrap" aria-label="Awards & Recognitions">
+    <div class="award">
+      <strong>Digital Ambassador (2025)</strong><br><small>Piloted first customer event in Malaysia showcasing Schenker IT capabilities</small>
+    </div>
+    <div class="award">
+      <strong>Value Ambassador (2019)</strong><br><small>Recognized for leadership and commitment — DB Schenker</small>
+    </div>
+    <div class="award">
+      <strong>'CAN DO' Award (2015)</strong><br><small>For upgrade across 10 countries — DHL</small>
+    </div>
+    <div class="award">
+      <strong>Bronze Medal (2016)</strong><br><small>For hardware migration across APAC/MEA — DHL</small>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" class="wrap" style="max-width:var(--max-width)">
+    <div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center">
+      <div>
+        <div style="color:#fff;font-weight:800">Let's talk</div>
+        <div style="color:#94a3b8;margin-top:6px">📞 +65 83179000 | +91 7736070045 &nbsp; • &nbsp; 📧 ajesh.kj@hotmail.com</div>
+      </div>
+
+      <div style="text-align:right;color:#94a3b8;font-size:13px">© 2025 Ajesh KJ — Built as cinematic single-page resume</div>
+    </div>
+    <div style="height:24px"></div>
+  </footer>
+
+  <!-- SCRIPTS: reveal, accordion, smooth scroll -->
+  <script>
+    // smooth anchor scroll
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          const href=a.getAttribute('href');
+          if(href.length>1){
+            e.preventDefault();
+            const el=document.querySelector(href);
+            if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+          }
+        });
+      });
+    })();
+
+    // reveal on scroll
+    function revealOnScroll(){
+      const reveals = document.querySelectorAll('.reveal');
+      for(const el of reveals){
+        const rect=el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 80){
+          el.classList.add('visible');
+        }
+      }
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // read-more accordions
+    document.querySelectorAll('.readmore-btn').forEach(btn=>{
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        const el = document.getElementById(id);
+        if(!el) return;
+        const open = el.classList.toggle('open');
+        el.setAttribute('aria-hidden', !open);
+        btn.textContent = open ? 'Hide details ▴' : 'Read role details ▾';
+        // smooth reveal
+        if(open) el.scrollIntoView({behavior:'smooth',block:'center'});
+      });
+    });
+  </script>
+</body>
+</html>
