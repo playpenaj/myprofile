@@ -97,7 +97,7 @@
       background:linear-gradient(to bottom,var(--accent),var(--accent-2));
       z-index:1;
     }
-    .roadmap-item{position:relative;z-index:2;display:flex;align-items:flex-start;gap:14px}
+    .roadmap-item{position:relative;z-index:2;display:flex;align-items:flex-start;gap:14px;color:inherit;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
     .roadmarker{
       flex:0 0 20px;width:20px;height:20px;border-radius:50%;margin-top:14px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
@@ -111,6 +111,13 @@
     .roadmap-company{font-weight:700;color:var(--accent-2);margin-bottom:4px;font-size:14px}
     .roadmap-role{font-weight:600;margin-bottom:4px;font-size:13px}
     .roadmap-period{font-size:12px;color:var(--muted)}
+    .roadmap-content{transition:transform .2s ease, box-shadow .2s ease, background .2s ease}
+    .roadmap-item:hover .roadmap-content,.roadmap-item:focus-visible .roadmap-content{background:var(--card-light);transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,180,216,0.25)}
+    .roadmap-hint{color:var(--muted);font-size:12px;margin-bottom:10px}
+
+    /* role sections reached from the timeline */
+    .role{padding:12px;border-radius:10px;transition:background .6s ease}
+    .role.flash{background:rgba(0,180,216,0.16)}
 
     /* --- HERO --- */
     header.hero{
@@ -259,63 +266,64 @@
 
   <!-- TIMELINE -->
   <div class="roadmap-container">
+    <div class="wrap roadmap-hint">Tap a role to jump to its details</div>
     <div class="roadmap wrap reveal" id="experience-roadmap">
-      <div class="roadmap-item">
+      <a class="roadmap-item" href="#exp-dsv" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">DSV</div>
           <div class="roadmap-role">Release Manager, Global Road QA</div>
           <div class="roadmap-period">Oct 2025 - Present</div>
         </div>
-      </div>
-      <div class="roadmap-item">
+      </a>
+      <a class="roadmap-item" href="#exp-schenker-digital" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">DB Schenker</div>
           <div class="roadmap-role">Digitalization Lead</div>
           <div class="roadmap-period">2023 - 2025</div>
         </div>
-      </div>
-      <div class="roadmap-item">
+      </a>
+      <a class="roadmap-item" href="#exp-singpost" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">Singapore Post</div>
           <div class="roadmap-role">Product Owner</div>
           <div class="roadmap-period">2022 - 2023</div>
         </div>
-      </div>
-      <div class="roadmap-item">
+      </a>
+      <a class="roadmap-item" href="#exp-schenker-regional" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">DB Schenker</div>
           <div class="roadmap-role">IT Service Manager</div>
           <div class="roadmap-period">2018 - 2022</div>
         </div>
-      </div>
-      <div class="roadmap-item">
+      </a>
+      <a class="roadmap-item" href="#exp-dhl" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">DHL</div>
           <div class="roadmap-role">App Consultant</div>
           <div class="roadmap-period">2014 - 2018</div>
         </div>
-      </div>
-      <div class="roadmap-item">
+      </a>
+      <a class="roadmap-item" href="#exp-dell" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">Dell (UBS)</div>
           <div class="roadmap-role">Team Lead</div>
           <div class="roadmap-period">2011 - 2014</div>
         </div>
-      </div>
-      <div class="roadmap-item">
+      </a>
+      <a class="roadmap-item" href="#exp-hcl" aria-label="Jump to role details">
         <div class="roadmarker"></div>
         <div class="roadmap-content">
           <div class="roadmap-company">HCL</div>
           <div class="roadmap-role">Credit Risk</div>
           <div class="roadmap-period">2007 - 2010</div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -350,69 +358,21 @@
 
   <!-- CINEMATIC JOURNEY -->
   <main id="journey" class="journey wrap" aria-live="polite">
-    <!-- Chapter 1 -->
+    <!-- Chapter 6 -->
     <section class="chapter reveal">
-      <div class="year-badge">2007</div>
+      <div class="year-badge">Oct 2025–Present</div>
       <div class="content">
-        <h2>From Code to Commerce — The Foundation</h2>
-        <div class="tagline">"Built the technical muscle in high-pressure finance environments."</div>
-        <p>My career started in the heart of financial systems where correctness and performance were table stakes. I cut my teeth supporting high-throughput Monte Carlo engines and mission-critical credit risk platforms.</p>
+        <h2>Quality at Scale — Global Release &amp; Test Governance</h2>
+        <div class="tagline">"Making global TMS migrations land cleanly."</div>
+        <p>Following the acquisition, I took on the Release Manager role for DSV's Global Road Quality Assurance team. The role lets me apply everything from integration, release and service management to build the test frameworks behind the migration and rollout of TMS applications worldwide.</p>
         <ul>
-          <li>Supported the MATRIX Credit Risk platform; developed PL/SQL routines and batch automation for scheduled risk runs.</li>
-          <li>Delivered release-management, testing and on-call support under strict SLAs.</li>
+          <li>Build test frameworks for the migration and global rollout of TMS applications.</li>
+          <li>Handle highly complex rollouts where requirements are driven by deep business knowledge.</li>
+          <li>Ensure integration pipelines are migrated to the target TMS without flaws.</li>
+          <li>Run all test documentation and recording in JIRA and TestRail.</li>
         </ul>
 
-        <div class="quote">"Early emphasis on robustness & discipline shaped how I design operational solutions today."</div>
-      </div>
-    </section>
-
-    <!-- Chapter 2 -->
-    <section class="chapter reveal">
-      <div class="year-badge">2011</div>
-      <div class="content">
-        <h2>Scaling Operations — Trading Tech & Automation</h2>
-        <div class="tagline">"From developer to operational team lead."</div>
-        <p>At Dell (servicing UBS), I moved into platform operations for trading environments. This phase sharpened my ability to automate repeatable tasks and streamline incident response.</p>
-        <ul>
-          <li>Led ETD IT support — maintained 16x5 trading platforms and operational alerting.</li>
-          <li>Automated routine operational tasks and orchestrated coordination between ops and engineering teams to reduce mean time to repair.</li>
-        </ul>
-
-        <div class="quote">"Automation isn't optional — it's a force multiplier for teams under pressure."</div>
-      </div>
-    </section>
-
-    <!-- Chapter 3 -->
-    <section class="chapter reveal">
-      <div class="year-badge">2014–2018</div>
-      <div class="content">
-        <h2>Digital Champion — Logistics & Integration</h2>
-        <div class="tagline">"Where logistics met meaningful digital change."</div>
-        <p>Joining DHL was the pivot to logistics — integrating large TMS platforms and rebuilds across countries, and embedding automation into real-world transport flows.</p>
-        <ul>
-          <li>Rebuilt standard integration layers across a 12-country TMS platform and led major upgrades.</li>
-          <li>Implemented reporting, DR drills and automation that improved reliability during migrations.</li>
-          <li>Recognized with the 'CAN DO' award for cross-country upgrade delivery.</li>
-        </ul>
-
-        <div class="quote">"Large, distributed platforms need pragmatic integration strategies and robust change controls."</div>
-      </div>
-    </section>
-
-    <!-- Chapter 4 -->
-    <section class="chapter reveal">
-      <div class="year-badge">2018–2022</div>
-      <div class="content">
-        <h2>Regional Leadership — DB Schenker</h2>
-        <div class="tagline">"Leading technology across APAC."</div>
-        <p>As Regional APAC IT Service Manager I transitioned to managing people, vendors and multi-country platforms. This stage honed stakeholder engagement, vendor governance and cross-border rollout capability.</p>
-        <ul>
-          <li>Managed E2Open and Oracle OTM systems across 12 APAC countries with a remote team and vendor ecosystem.</li>
-          <li>Built Power BI dashboards and introduced RPA sanity checks for automation health.</li>
-          <li>Led CABs, crisis management and service reviews to maintain uptime and change quality.</li>
-        </ul>
-
-        <div class="quote">"Leadership is the ability to translate technical strategy into predictable, repeatable outcomes."</div>
+        <div class="quote">"Complex rollouts succeed when business knowledge, integration detail and test discipline meet in one framework."</div>
       </div>
     </section>
 
@@ -446,21 +406,69 @@
       </div>
     </section>
 
-    <!-- Chapter 6 -->
+    <!-- Chapter 4 -->
     <section class="chapter reveal">
-      <div class="year-badge">Oct 2025–Present</div>
+      <div class="year-badge">2018–2022</div>
       <div class="content">
-        <h2>Quality at Scale — Global Release &amp; Test Governance</h2>
-        <div class="tagline">"Making global TMS migrations land cleanly."</div>
-        <p>Following the acquisition, I took on the Release Manager role for DSV's Global Road Quality Assurance team. The role lets me apply everything from integration, release and service management to build the test frameworks behind the migration and rollout of TMS applications worldwide.</p>
+        <h2>Regional Leadership — DB Schenker</h2>
+        <div class="tagline">"Leading technology across APAC."</div>
+        <p>As Regional APAC IT Service Manager I transitioned to managing people, vendors and multi-country platforms. This stage honed stakeholder engagement, vendor governance and cross-border rollout capability.</p>
         <ul>
-          <li>Build test frameworks for the migration and global rollout of TMS applications.</li>
-          <li>Handle highly complex rollouts where requirements are driven by deep business knowledge.</li>
-          <li>Ensure integration pipelines are migrated to the target TMS without flaws.</li>
-          <li>Run all test documentation and recording in JIRA and TestRail.</li>
+          <li>Managed E2Open and Oracle OTM systems across 12 APAC countries with a remote team and vendor ecosystem.</li>
+          <li>Built Power BI dashboards and introduced RPA sanity checks for automation health.</li>
+          <li>Led CABs, crisis management and service reviews to maintain uptime and change quality.</li>
         </ul>
 
-        <div class="quote">"Complex rollouts succeed when business knowledge, integration detail and test discipline meet in one framework."</div>
+        <div class="quote">"Leadership is the ability to translate technical strategy into predictable, repeatable outcomes."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2014–2018</div>
+      <div class="content">
+        <h2>Digital Champion — Logistics & Integration</h2>
+        <div class="tagline">"Where logistics met meaningful digital change."</div>
+        <p>Joining DHL was the pivot to logistics — integrating large TMS platforms and rebuilds across countries, and embedding automation into real-world transport flows.</p>
+        <ul>
+          <li>Rebuilt standard integration layers across a 12-country TMS platform and led major upgrades.</li>
+          <li>Implemented reporting, DR drills and automation that improved reliability during migrations.</li>
+          <li>Recognized with the 'CAN DO' award for cross-country upgrade delivery.</li>
+        </ul>
+
+        <div class="quote">"Large, distributed platforms need pragmatic integration strategies and robust change controls."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2011</div>
+      <div class="content">
+        <h2>Scaling Operations — Trading Tech & Automation</h2>
+        <div class="tagline">"From developer to operational team lead."</div>
+        <p>At Dell (servicing UBS), I moved into platform operations for trading environments. This phase sharpened my ability to automate repeatable tasks and streamline incident response.</p>
+        <ul>
+          <li>Led ETD IT support — maintained 16x5 trading platforms and operational alerting.</li>
+          <li>Automated routine operational tasks and orchestrated coordination between ops and engineering teams to reduce mean time to repair.</li>
+        </ul>
+
+        <div class="quote">"Automation isn't optional — it's a force multiplier for teams under pressure."</div>
+      </div>
+    </section>
+
+    <!-- Chapter 1 -->
+    <section class="chapter reveal">
+      <div class="year-badge">2007</div>
+      <div class="content">
+        <h2>From Code to Commerce — The Foundation</h2>
+        <div class="tagline">"Built the technical muscle in high-pressure finance environments."</div>
+        <p>My career started in the heart of financial systems where correctness and performance were table stakes. I cut my teeth supporting high-throughput Monte Carlo engines and mission-critical credit risk platforms.</p>
+        <ul>
+          <li>Supported the MATRIX Credit Risk platform; developed PL/SQL routines and batch automation for scheduled risk runs.</li>
+          <li>Delivered release-management, testing and on-call support under strict SLAs.</li>
+        </ul>
+
+        <div class="quote">"Early emphasis on robustness & discipline shaped how I design operational solutions today."</div>
       </div>
     </section>
   </main>
@@ -516,7 +524,7 @@
       <h3 class="section-title">Detailed Professional Experience</h3>
 
       <!-- DSV (current) -->
-      <article style="margin-top:12px">
+      <article class="role" id="exp-dsv" style="margin-top:12px">
         <h4 style="margin:6px 0">DSV — Release Manager, Global Road Quality Assurance</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Oct 2025 – Present • Global (Road Applications)</div>
         <ul>
@@ -528,7 +536,7 @@
       </article>
 
       <!-- DB Schenker (Digitalization) -->
-      <article style="margin-top:18px">
+      <article class="role" id="exp-schenker-digital" style="margin-top:18px">
         <h4 style="margin:6px 0">DB Schenker — Business Engagement & Digitalization Lead</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2023 – Oct 2025 • APAC (Road Transport)</div>
         <ul>
@@ -546,7 +554,7 @@
       </article>
 
       <!-- Singapore Post -->
-      <article style="margin-top:18px">
+      <article class="role" id="exp-singpost" style="margin-top:18px">
         <h4 style="margin:6px 0">Singapore Post Ltd — Product Owner & Service Manager</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2022 – Aug 2023</div>
         <ul>
@@ -564,7 +572,7 @@
       </article>
 
       <!-- DB Schenker (Regional) -->
-      <article style="margin-top:18px">
+      <article class="role" id="exp-schenker-regional" style="margin-top:18px">
         <h4 style="margin:6px 0">DB Schenker — Regional APAC IT Service Manager</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2018 – Sep 2022</div>
         <ul>
@@ -575,7 +583,7 @@
       </article>
 
       <!-- DHL -->
-      <article style="margin-top:18px">
+      <article class="role" id="exp-dhl" style="margin-top:18px">
         <h4 style="margin:6px 0">DHL Supply Chain — Senior Application Consultant</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Sep 2014 – Jul 2018</div>
         <ul>
@@ -585,7 +593,7 @@
       </article>
 
       <!-- Dell -->
-      <article style="margin-top:18px">
+      <article class="role" id="exp-dell" style="margin-top:18px">
         <h4 style="margin:6px 0">Dell Singapore (Client: UBS) — Team Lead, ETD IT</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Oct 2011 – Sep 2014</div>
         <ul>
@@ -594,7 +602,7 @@
       </article>
 
       <!-- HCL -->
-      <article style="margin-top:18px">
+      <article class="role" id="exp-hcl" style="margin-top:18px">
         <h4 style="margin:6px 0">HCL Technologies (Client: Deutsche Bank) — Team Member, MATRIX Credit Risk Platform</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Jul 2007 – Feb 2010</div>
         <ul>
@@ -665,6 +673,10 @@
               e.preventDefault();
               closeMenu();
               el.scrollIntoView({behavior:'smooth', block:'start'});
+              if(el.classList.contains('role')){
+                el.classList.add('flash');
+                setTimeout(() => el.classList.remove('flash'), 2200);
+              }
             }
           }
         });
