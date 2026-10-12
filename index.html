@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#071026" />
   <title>Ajesh KJ — IT Leader | Digital Transformation</title>
 
   <!-- Google Font -->
@@ -12,130 +13,138 @@
     :root{
       --accent:#0077b6;
       --accent-2:#00b4d8;
-      --bg-1:#0f1724;   /* deep cinematic top */
-      --bg-2:#071026;   /* deep cinematic bottom */
+      --bg-1:#0f1724;
+      --bg-2:#071026;
       --card:#1e293b;
       --card-light:#334155;
       --muted:#94a3b8;
       --glass: rgba(255,255,255,0.06);
-      --glass-2: rgba(255,255,255,0.03);
       --max-width:1100px;
+      --gutter:16px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:'Montserrat',sans-serif;color:#f8fafc;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased}
-    a{color:var(--accent-2);text-decoration:none}
-    /* --- container --- */
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 
-    /* --- NAV --- */
+    /* Vertical scrolling only: no horizontal overflow anywhere */
+    html{
+      scroll-padding-top:88px;           /* keeps section titles clear of the sticky bar */
+      overflow-x:hidden;
+      -webkit-text-size-adjust:100%;
+    }
+    html,body{
+      min-height:100%;                   /* min-height (not height) so the sticky bar works on the full page */
+      margin:0;
+      max-width:100%;
+      font-family:'Montserrat',sans-serif;
+      color:#f8fafc;
+      background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      -webkit-font-smoothing:antialiased;
+    }
+    body{overflow-wrap:break-word}
+    img{max-width:100%}
+    a{color:var(--accent-2);text-decoration:none}
+
+    /* --- container --- */
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}
+
+    /* --- NAV (always visible) --- */
     .nav{
-      position:sticky;top:0;z-index:40;
-      display:flex;justify-content:center;
-      background: var(--bg-2);
-      padding: 8px 0;
+      position:-webkit-sticky;position:sticky;top:0;z-index:100;
+      background:var(--bg-2);
+      padding:calc(8px + env(safe-area-inset-top)) 10px 8px;
     }
     .nav-inner{
-      width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:space-between;
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border-radius:12px;padding:10px 18px;backdrop-filter: blur(6px);box-shadow:0 6px 30px rgba(2,6,23,0.6);
+      position:relative;
+      max-width:var(--max-width);margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius:12px;padding:8px 12px;
+      box-shadow:0 6px 30px rgba(2,6,23,0.6);
     }
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:44px;width:44px;object-fit:contain;border-radius:8px;background:linear-gradient(45deg,var(--accent),var(--accent-2))}
-    .brand h4{margin:0;color:#fff;font-weight:800;letter-spacing:0.4px}
-    .nav-links{display:flex;gap:8px;align-items:center}
-    .nav-links a{color:rgba(255,255,255,0.95);padding:8px 10px;border-radius:8px;font-weight:600;font-size:14px;white-space: nowrap;}
-    .nav-links a:hover{background:rgba(255,255,255,0.03)}
+    .brand{display:flex;align-items:center;gap:10px;min-width:0}
+    .brand img{height:40px;width:40px;flex:0 0 40px;object-fit:contain;border-radius:8px;background:linear-gradient(45deg,var(--accent),var(--accent-2))}
+    .brand h4{margin:0;color:#fff;font-weight:800;letter-spacing:0.4px;font-size:16px}
+    .brand .sub{font-size:12px;color:rgba(255,255,255,0.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-    /* HORIZONTAL ROADMAP */
-    .roadmap-container {
-      overflow-x: auto;
-      padding: 20px 0;
-      -webkit-overflow-scrolling: touch;
-    }
-    .roadmap {
-      display: flex;
-      min-width: 800px;
-      padding: 0 24px;
-      position: relative;
-    }
-    .roadmap::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 2px;
-      background: linear-gradient(to right, var(--accent), var(--accent-2));
-      z-index: 1;
-    }
-    .roadmap-item {
-      position: relative;
-      padding: 0 20px;
-      flex: 1;
-      min-width: 160px;
-      z-index: 2;
-      text-align: center;
-    }
-    .roadmarker {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      margin: 0 auto 10px;
-      position: relative;
-      box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.2);
-    }
-    .roadmap-content {
-      background: var(--card);
-      padding: 12px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(2,6,23,0.3);
-    }
-    .roadmap-company {
-      font-weight: 700;
-      color: var(--accent-2);
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-    .roadmap-role {
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 12px;
-    }
-    .roadmap-period {
-      font-size: 11px;
-      color: var(--muted);
+    .menu-btn{
+      flex:0 0 44px;width:44px;height:44px;
+      background:transparent;border:1px solid rgba(255,255,255,0.12);border-radius:10px;
+      color:#fff;font-size:22px;line-height:1;cursor:pointer;
     }
 
-    /* --- HERO / BANNER --- */
+    /* mobile: dropdown panel under the bar */
+    .nav-links{
+      display:none;
+      position:absolute;left:0;right:0;top:calc(100% + 8px);
+      flex-direction:column;gap:4px;
+      background:var(--bg-2);border:1px solid rgba(255,255,255,0.08);
+      border-radius:12px;padding:8px;
+      box-shadow:0 14px 40px rgba(2,6,23,0.7);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{
+      color:rgba(255,255,255,0.95);padding:13px 14px;border-radius:8px;
+      font-weight:600;font-size:15px;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,0.05)}
+    .nav-links a.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+
+    /* --- TIMELINE (vertical on phones, wrapped grid on larger screens) --- */
+    .roadmap-container{padding:20px 0}
+    .roadmap{display:flex;flex-direction:column;gap:14px;position:relative}
+    .roadmap::before{
+      content:"";position:absolute;
+      left:calc(var(--gutter) + 9px);top:16px;bottom:16px;width:2px;
+      background:linear-gradient(to bottom,var(--accent),var(--accent-2));
+      z-index:1;
+    }
+    .roadmap-item{position:relative;z-index:2;display:flex;align-items:flex-start;gap:14px}
+    .roadmarker{
+      flex:0 0 20px;width:20px;height:20px;border-radius:50%;margin-top:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 0 4px rgba(0,180,216,0.2);
+    }
+    .roadmap-content{
+      flex:1;min-width:0;text-align:left;
+      background:var(--card);padding:12px;border-radius:8px;
+      box-shadow:0 4px 15px rgba(2,6,23,0.3);
+    }
+    .roadmap-company{font-weight:700;color:var(--accent-2);margin-bottom:4px;font-size:14px}
+    .roadmap-role{font-weight:600;margin-bottom:4px;font-size:13px}
+    .roadmap-period{font-size:12px;color:var(--muted)}
+
+    /* --- HERO --- */
     header.hero{
-      min-height:60vh;display:flex;align-items:center;
-      background: var(--bg-2);
-      position:relative;margin:0 0 28px;
-      overflow:hidden;
+      min-height:50vh;display:flex;align-items:center;
+      background:var(--bg-2);
+      position:relative;margin:0 0 28px;overflow:hidden;
     }
-    .hero-inner{position:relative;z-index:3;padding:40px 24px;display:flex;flex-direction:column;gap:30px;width:100%;}
-    .hero-left{flex:1;color:white;max-width:100%}
-    .hero-left h1{font-size:36px;margin:0 0 8px;line-height:1.1;font-weight:800;letter-spacing:-0.6px}
-    .hero-left p.lead{margin:0 0 18px;color:rgba(255,255,255,0.9);font-size:16px;line-height:1.5}
+    .hero-inner{position:relative;z-index:3;padding:32px var(--gutter);display:flex;flex-direction:column;gap:24px;width:100%}
+    .hero-left{flex:1;color:white;min-width:0}
+    .hero-left h1{font-size:30px;margin:0 0 8px;line-height:1.1;font-weight:800;letter-spacing:-0.6px}
+    .hero-left p.lead{margin:0 0 18px;color:rgba(255,255,255,0.9);font-size:15px;line-height:1.55}
     .hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:12px 18px;border-radius:10px;font-weight:700;box-shadow:0 10px 30px rgba(0,180,216,0.12);white-space:nowrap}
-    .btn-outline{border:1px solid rgba(255,255,255,0.12);color:white;padding:10px 16px;border-radius:10px;white-space:nowrap}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:12px 18px;border-radius:10px;font-weight:700;box-shadow:0 10px 30px rgba(0,180,216,0.12)}
+    .btn-outline{border:1px solid rgba(255,255,255,0.12);color:white;padding:11px 16px;border-radius:10px}
     .meta{margin-top:14px;color:rgba(255,255,255,0.8);font-size:14px}
 
-    .hero-right{width:100%;}
+    .hero-right{width:100%;min-width:0}
     .card-stats{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));padding:14px;border-radius:12px;width:100%}
-    .stat{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .stat{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
     .stat:last-child{margin-bottom:0}
-    .stat .label{color:rgba(255,255,255,0.8);font-size:13px}
-    .stat .value{font-weight:800;font-size:16px;color:#fff}
+    .stat .label{color:rgba(255,255,255,0.8);font-size:13px;flex:0 0 auto}
+    .stat .value{font-weight:800;font-size:14px;color:#fff;text-align:right;min-width:0}
 
     /* --- journey / chapters --- */
-    .journey{margin:28px 0 0;border-radius:0;overflow:hidden}
-    .chapter{position:relative;min-height:auto;display:flex;align-items:center;padding:40px 24px;gap:20px;background: var(--bg-1);flex-direction:column}
-    .chapter .content{max-width:100%;color:white;position:relative;z-index:2}
-    .year-badge{position:static;margin:0 0 20px 0;align-self:flex-start}
-    .content h2{font-size:24px;margin:0 0 6px}
+    .journey{margin:28px auto 0;overflow:hidden}
+    .chapter{position:relative;display:flex;align-items:flex-start;padding:32px var(--gutter);gap:16px;background:var(--bg-1);flex-direction:column}
+    .chapter .content{max-width:100%;min-width:0;color:white;position:relative;z-index:2}
+    .year-badge{
+      display:inline-block;margin:0;align-self:flex-start;
+      background:var(--glass);border:1px solid rgba(255,255,255,0.1);
+      color:var(--accent-2);font-weight:700;font-size:13px;
+      padding:6px 12px;border-radius:999px;
+    }
+    .content h2{font-size:21px;margin:0 0 6px;line-height:1.25}
     .tagline{color:var(--accent-2);font-style:italic;margin-bottom:12px;font-size:14px}
     .content ul{margin:12px 0 0;padding-left:20px}
     .content li{margin-bottom:8px;line-height:1.5;font-size:15px}
@@ -143,71 +152,112 @@
 
     /* read-more / accordion */
     .more{margin-top:12px}
-    .readmore-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#fff;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600;font-size:14px}
-    .details{max-height:0;overflow:hidden;transition:max-height .45s ease;padding-right:0;font-size:14px}
-    .details.open{max-height:800px;padding-top:12px;padding-bottom:12px}
+    .readmore-btn{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;font-size:14px}
+    .details{max-height:0;overflow:hidden;transition:max-height .45s ease;font-size:14px}
+    .details.open{max-height:900px;padding-top:12px;padding-bottom:12px}
 
-    /* --- skills & table area --- */
-    section.data-panel{background:transparent;margin:28px 0;border-radius:0;padding:0 24px;backdrop-filter:none}
-    .grid{display:grid;grid-template-columns:1fr;gap:20px}
-    .panel{background:var(--card);border-radius:10px;padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.45);margin-bottom:20px}
+    /* --- skills & tables --- */
+    section.data-panel{margin:28px auto}
+    .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+    .panel{background:var(--card);border-radius:10px;padding:16px;box-shadow:0 8px 30px rgba(2,6,23,0.45);margin-bottom:20px;min-width:0}
     h3.section-title{margin:0 0 12px;color:#f8fafc;font-size:20px}
     table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card-light);border-radius:8px;overflow:hidden}
-    th,td{padding:12px;text-align:left}
+    th,td{padding:10px;text-align:left;vertical-align:top;overflow-wrap:anywhere}
     th{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:none}
-    td{border-bottom:1px solid rgba(255,255,255,0.05);color:#e2e8f0;font-size:14px}
+    td{border-bottom:1px solid rgba(255,255,255,0.05);color:#e2e8f0}
     tr:last-child td{border-bottom:none}
     .skills-chip{display:inline-block;background:var(--glass);color:white;padding:6px 10px;border-radius:999px;font-weight:600;margin:6px 6px 0 0;font-size:13px}
 
     /* awards & footer */
-    .awards{margin:28px 24px 40px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .awards{margin:28px auto 40px;display:grid;grid-template-columns:1fr;gap:12px}
     .award{background:linear-gradient(180deg,rgba(30,41,59,0.98),var(--card));padding:12px;border-radius:8px;box-shadow:0 12px 30px rgba(2,6,23,0.3);border:1px solid rgba(255,255,255,0.05)}
     .award strong{color:#f8fafc;font-size:14px}
     .award small{color:var(--muted);font-size:12px}
-    footer{color:#94a3b8;text-align:center;padding:28px 12px;margin-top:30px;background:var(--bg-1)}
+    footer{color:#94a3b8;padding:28px var(--gutter);margin-top:30px;background:var(--bg-1)}
+    .foot{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-start}
+    .foot-note{font-size:13px}
 
-    /* --- animations & responsive --- */
+    /* --- animations --- */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
+    @media (prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      html{scroll-behavior:auto}
+    }
+
+    /* --- small phones --- */
+    @media (max-width:420px){
+      .brand .sub{display:none}
+      th,td{padding:9px 8px;font-size:13px}
+      .content li{font-size:14px}
+    }
+
+    /* --- tablets and up: inline nav, wider layouts --- */
+    @media (min-width:600px){
+      .awards{grid-template-columns:1fr 1fr}
+    }
     @media (min-width:768px){
-      .hero-inner{flex-direction:row;padding:56px 24px}
+      :root{--gutter:24px}
+      .menu-btn{display:none}
+      .nav-links{
+        display:flex;position:static;flex-direction:row;gap:4px;
+        background:none;border:none;box-shadow:none;padding:0;
+      }
+      .nav-links a{padding:8px 10px;font-size:14px;white-space:nowrap}
+
+      .roadmap{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:18px}
+      .roadmap::before{display:none}
+      .roadmap-item{flex:0 0 calc(25% - 14px);flex-direction:column;align-items:center;gap:0}
+      .roadmarker{margin:0 0 10px}
+      .roadmap-content{width:100%;text-align:center}
+
+      .hero-inner{flex-direction:row;padding:56px var(--gutter);gap:30px}
       .hero-left{max-width:720px}
-      .hero-right{width:320px}
-      .chapter{padding:56px;flex-direction:row;min-height:68vh}
+      .hero-left h1{font-size:36px}
+      .hero-left p.lead{font-size:16px}
+      .hero-right{width:340px;flex:0 0 340px}
+
+      .chapter{padding:56px;flex-direction:row;min-height:60vh}
       .chapter .content{max-width:720px}
-      .year-badge{position:absolute;right:36px;top:36px;margin:0}
+      .content h2{font-size:24px}
+      .year-badge{position:absolute;right:36px;top:36px}
+
+      .panel{padding:20px}
+      th,td{padding:12px}
       .awards{grid-template-columns:repeat(4,1fr)}
-      .nav-links{gap:14px}
     }
     @media (min-width:992px){
-      .grid{grid-template-columns:1fr 360px}
-      .hero-inner{padding:56px}
+      .grid{grid-template-columns:minmax(0,1fr)}
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <div class="nav">
-    <div class="nav-inner wrap" role="navigation" aria-label="Main navigation">
+  <!-- NAV (sticky, always on) -->
+  <div class="nav" id="top-nav">
+    <div class="nav-inner" role="navigation" aria-label="Main navigation">
       <div class="brand" title="Ajesh KJ">
         <img src="https://img.icons8.com/fluency/96/null/user-male-circle.png" alt="Logo" />
-        <div>
+        <div style="min-width:0">
           <h4>Ajesh KJ</h4>
-          <div style="font-size:12px;color:rgba(255,255,255,0.75)">IT Leader • Digital Transformation</div>
+          <div class="sub">IT Leader • Digital Transformation</div>
         </div>
       </div>
 
-      <div class="nav-links" aria-hidden="false">
+      <button class="menu-btn" id="menu-btn" aria-label="Open section menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+
+      <div class="nav-links" id="nav-links">
         <a href="#experience-roadmap">Timeline</a>
         <a href="#summary">Summary</a>
+        <a href="#journey">Journey</a>
         <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </div>
 
-  <!-- HORIZONTAL ROADMAP -->
+  <!-- TIMELINE -->
   <div class="roadmap-container">
     <div class="roadmap wrap reveal" id="experience-roadmap">
       <div class="roadmap-item">
@@ -215,7 +265,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">DSV</div>
           <div class="roadmap-role">Release Manager, Global Road QA</div>
-          <div class="roadmap-period">Oct 2025-Present</div>
+          <div class="roadmap-period">Oct 2025 - Present</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -223,7 +273,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">DB Schenker</div>
           <div class="roadmap-role">Digitalization Lead</div>
-          <div class="roadmap-period">2023-2025</div>
+          <div class="roadmap-period">2023 - 2025</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -231,7 +281,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">Singapore Post</div>
           <div class="roadmap-role">Product Owner</div>
-          <div class="roadmap-period">2022-2023</div>
+          <div class="roadmap-period">2022 - 2023</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -239,7 +289,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">DB Schenker</div>
           <div class="roadmap-role">IT Service Manager</div>
-          <div class="roadmap-period">2018-2022</div>
+          <div class="roadmap-period">2018 - 2022</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -247,7 +297,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">DHL</div>
           <div class="roadmap-role">App Consultant</div>
-          <div class="roadmap-period">2014-2018</div>
+          <div class="roadmap-period">2014 - 2018</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -255,7 +305,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">Dell (UBS)</div>
           <div class="roadmap-role">Team Lead</div>
-          <div class="roadmap-period">2011-2014</div>
+          <div class="roadmap-period">2011 - 2014</div>
         </div>
       </div>
       <div class="roadmap-item">
@@ -263,7 +313,7 @@
         <div class="roadmap-content">
           <div class="roadmap-company">HCL</div>
           <div class="roadmap-role">Credit Risk</div>
-          <div class="roadmap-period">2007-2010</div>
+          <div class="roadmap-period">2007 - 2010</div>
         </div>
       </div>
     </div>
@@ -290,7 +340,7 @@
           <div class="stat"><div class="label">Regions</div><div class="value">APAC (12 countries) • Global</div></div>
         </div>
 
-        <div class="card-stats" aria-hidden="true" style="margin-top:12px">
+        <div class="card-stats" style="margin-top:12px">
           <div class="stat"><div class="label">Core Domains</div><div class="value">ITSM • Cloud • TMS • Automation • Release &amp; QA</div></div>
           <div class="stat"><div class="label">Tools</div><div class="value">Azure • Power BI • E2Open • OTM • JIRA • TestRail</div></div>
         </div>
@@ -396,7 +446,7 @@
       </div>
     </section>
 
-    <!-- Chapter 6 (NEW) -->
+    <!-- Chapter 6 -->
     <section class="chapter reveal">
       <div class="year-badge">Oct 2025–Present</div>
       <div class="content">
@@ -418,7 +468,6 @@
   <!-- SKILLS & CERTIFICATIONS -->
   <section id="skills" class="data-panel wrap" aria-label="Skills and certifications">
     <div class="grid">
-      <!-- Skills & Certifications -->
       <div class="panel reveal" id="skills-panel">
         <h3 class="section-title">Core Skills & Certifications</h3>
 
@@ -463,10 +512,10 @@
 
   <!-- DETAILED EXPERIENCE -->
   <section id="experience" class="wrap" style="margin-top:20px">
-    <div class="panel reveal" style="padding:22px">
+    <div class="panel reveal">
       <h3 class="section-title">Detailed Professional Experience</h3>
 
-      <!-- DSV (current, NEW) -->
+      <!-- DSV (current) -->
       <article style="margin-top:12px">
         <h4 style="margin:6px 0">DSV — Release Manager, Global Road Quality Assurance</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Oct 2025 – Present • Global (Road Applications)</div>
@@ -498,7 +547,7 @@
 
       <!-- Singapore Post -->
       <article style="margin-top:18px">
-        <h4>Singapore Post Ltd — Product Owner & Service Manager</h4>
+        <h4 style="margin:6px 0">Singapore Post Ltd — Product Owner & Service Manager</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2022 – Aug 2023</div>
         <ul>
           <li>Oversaw migration of SAS reporting to Azure Synapse and Power BI; coordinated 30+ offshore vendor resources and stakeholders.</li>
@@ -516,7 +565,7 @@
 
       <!-- DB Schenker (Regional) -->
       <article style="margin-top:18px">
-        <h4>DB Schenker — Regional APAC IT Service Manager</h4>
+        <h4 style="margin:6px 0">DB Schenker — Regional APAC IT Service Manager</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Aug 2018 – Sep 2022</div>
         <ul>
           <li>Managed E2Open & OTM across 12 countries; led incident, problem, change & release governance.</li>
@@ -527,7 +576,7 @@
 
       <!-- DHL -->
       <article style="margin-top:18px">
-        <h4>DHL Supply Chain — Senior Application Consultant</h4>
+        <h4 style="margin:6px 0">DHL Supply Chain — Senior Application Consultant</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Sep 2014 – Jul 2018</div>
         <ul>
           <li>Managed technical changes and integrations on TMS; rebuilt integration layers across 12-country platform.</li>
@@ -537,7 +586,7 @@
 
       <!-- Dell -->
       <article style="margin-top:18px">
-        <h4>Dell Singapore (Client: UBS) — Team Lead, ETD IT</h4>
+        <h4 style="margin:6px 0">Dell Singapore (Client: UBS) — Team Lead, ETD IT</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Oct 2011 – Sep 2014</div>
         <ul>
           <li>Led support for trading platforms; automated operational tasks and handled high-severity incidents.</li>
@@ -546,7 +595,7 @@
 
       <!-- HCL -->
       <article style="margin-top:18px">
-        <h4>HCL Technologies (Client: Deutsche Bank) — Team Member, MATRIX Credit Risk Platform</h4>
+        <h4 style="margin:6px 0">HCL Technologies (Client: Deutsche Bank) — Team Member, MATRIX Credit Risk Platform</h4>
         <div style="color:var(--muted);font-size:13px;margin-bottom:8px">Jul 2007 – Feb 2010</div>
         <ul>
           <li>Supported Monte Carlo risk engine, developed PL/SQL routines, and delivered client reporting and releases.</li>
@@ -572,60 +621,93 @@
   </section>
 
   <!-- CONTACT / FOOTER -->
-  <footer id="contact" class="wrap" style="max-width:var(--max-width)">
-    <div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center">
-      <div>
-        <div style="color:#fff;font-weight:800">Let's talk</div>
-        <div style="color:#94a3b8;margin-top:6px">📞 +65 83179000 | +91 7736070045 &nbsp; • &nbsp; 📧 ajesh.kj@hotmail.com</div>
+  <footer id="contact">
+    <div class="wrap" style="padding:0">
+      <div class="foot">
+        <div>
+          <div style="color:#fff;font-weight:800">Let's talk</div>
+          <div style="color:#94a3b8;margin-top:6px;line-height:1.7">📞 +65 83179000 | +91 7736070045<br>📧 ajesh.kj@hotmail.com</div>
+        </div>
+        <div class="foot-note">© 2025 Ajesh KJ — Built as cinematic single-page resume</div>
       </div>
-
-      <div style="text-align:right;color:#94a3b8;font-size:13px">© 2025 Ajesh KJ — Built as cinematic single-page resume</div>
     </div>
-    <div style="height:24px"></div>
   </footer>
 
-  <!-- SCRIPTS: reveal, accordion, smooth scroll -->
+  <!-- SCRIPTS: menu, active section, reveal, accordion, smooth scroll -->
   <script>
-    // smooth anchor scroll
     (function(){
-      document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', e=>{
-          const href=a.getAttribute('href');
-          if(href.length>1){
-            e.preventDefault();
-            const el=document.querySelector(href);
-            if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      const menuBtn = document.getElementById('menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      const links = Array.from(navLinks.querySelectorAll('a'));
+
+      function closeMenu(){
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+        menuBtn.textContent = '☰';
+      }
+      menuBtn.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuBtn.textContent = open ? '✕' : '☰';
+      });
+      // tapping outside the bar closes the menu
+      document.addEventListener('click', e => {
+        if(!e.target.closest('.nav-inner')) closeMenu();
+      });
+
+      // smooth anchor scroll (sticky-bar offset handled by scroll-padding-top)
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const href = a.getAttribute('href');
+          if(href.length > 1){
+            const el = document.querySelector(href);
+            if(el){
+              e.preventDefault();
+              closeMenu();
+              el.scrollIntoView({behavior:'smooth', block:'start'});
+            }
           }
         });
       });
-    })();
 
-    // reveal on scroll
-    function revealOnScroll(){
-      const reveals = document.querySelectorAll('.reveal');
-      for(const el of reveals){
-        const rect=el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 80){
-          el.classList.add('visible');
+      // highlight the section currently in view
+      const sectionIds = links.map(l => l.getAttribute('href').slice(1));
+      function setActive(){
+        let current = sectionIds[0];
+        sectionIds.forEach(id => {
+          const el = document.getElementById(id);
+          if(el && el.getBoundingClientRect().top <= 120) current = id;
+        });
+        if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4){
+          current = 'contact';
         }
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
       }
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
 
-    // read-more accordions
-    document.querySelectorAll('.readmore-btn').forEach(btn=>{
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-target');
-        const el = document.getElementById(id);
-        if(!el) return;
-        const open = el.classList.toggle('open');
-        el.setAttribute('aria-hidden', !open);
-        btn.textContent = open ? 'Hide details ▴' : 'Read role details ▾';
-        // smooth reveal
-        if(open) el.scrollIntoView({behavior:'smooth',block:'center'});
+      // reveal on scroll
+      function revealOnScroll(){
+        document.querySelectorAll('.reveal').forEach(el => {
+          if(el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('visible');
+        });
+      }
+
+      function onScroll(){ revealOnScroll(); setActive(); }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', onScroll);
+      onScroll();
+
+      // read-more accordions
+      document.querySelectorAll('.readmore-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const el = document.getElementById(btn.getAttribute('data-target'));
+          if(!el) return;
+          const open = el.classList.toggle('open');
+          el.setAttribute('aria-hidden', !open);
+          btn.textContent = open ? 'Hide details ▴' : 'Read role details ▾';
+        });
       });
-    });
+    })();
   </script>
 </body>
 </html>
